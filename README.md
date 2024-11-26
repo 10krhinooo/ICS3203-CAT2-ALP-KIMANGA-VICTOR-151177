@@ -16,7 +16,7 @@ This program is an assembly implementation that prompts the user to input a numb
    - Open a terminal and navigate to the directory containing the assembly code q1.asm.
    - Assemble the code :
      bash
-     nasm -g -f elf q1.asm
+     ~ nasm -g -f elf q1.asm
      
    - Link the object file :
      bash

@@ -33,9 +33,9 @@ This program is an assembly implementation that prompts the user to input a numb
 ### Insights and Challenges
 
 #### Insights:
-- The program utilizes system calls (sys_write and sys_read) to interact with the user via standard input and output. These syscalls are essential for basic I/O operations in Linux assembly.
-- Logical flow control using conditional and unconditional jump instructions (je, jne, and jmp) ensures efficient classification of the input.
-- The ASCII-to-integer conversion highlights the importance of understanding character encoding when handling user input.
+- System Calls for I/O: Demonstrates the use of sys_write and sys_read for user interaction, showcasing basic input and output handling in Linux assembly.
+- Control Flow: Efficiently classifies input using conditional and unconditional jumps (je, jne, jmp), emphasizing logical flow in assembly programming.
+- Character Encoding: Highlights the need to understand ASCII-to-integer conversion for accurate user input processing.
 
 #### Challenges Encountered:
 1. *Input Conversion*:
@@ -75,27 +75,23 @@ This program reverses an array of 5 user-inputted numbers. It takes the numbers 
 
 The program will prompt you to enter 5 numbers, reverse the input array, and display the reversed array.
 
-### Insights and Challenges
+### Insights
 
-- *Challenges with array management*: Handling the array in assembly required managing pointers manually. Using two pointers (esi and edi) allowed for efficient in-place reversal of the array.
-  
-- *Character handling*: The program treats input as characters (numbers are entered as ASCII values), which could be confusing if the input is not formatted correctly.
+-The Insights Manual Array management makes use of pointer-based strategies; effective in-place array reversing is made possible by source (esi) and destination (edi) pointers.
+-Low-Level I/O: Uses Linux system calls for input and output; its arguments and behaviour must be understood.
+-Direct Memory Manipulation: Draws attention to the accuracy needed when processing characters and arrays straight from memory.
 
-- *System calls*: The program relies on Linux system calls (sys_write, sys_read, sys_exit) to handle input/output, which required a good understanding of low-level assembly programming.
 
-- *Pointer management*: The use of esi (source index) and edi (destination index) registers for array traversal and reversal helped streamline the process, but also introduced complexities in managing memory directly at the assembly level.
+###Challenges
+-Pointer Complexity: While handling pointers for array traversal and reversal added challenges, it also emphasised how crucial memory management is.
+-Input Format Sensitivity: Accurate formatting was necessary to prevent errors when interpreting input as ASCII characters.
+
 
 ## Task 3: Factorial Calculation Program
 
 ### Overview
 
-This program calculates the factorial of a user-inputted number. The program performs the following steps:
-
-1. Displays a prompt asking the user to enter a number.
-2. Reads the user input and converts it from ASCII to an integer.
-3. Calculates the factorial of the number using recursion.
-4. Converts the result from integer to string.
-5. Displays the result.
+This program calculates the factorial of a user-inputted number.
 
 The program relies on Linux system calls to handle input/output and demonstrates fundamental concepts like recursion, integer-to-string conversion, and system call usage in assembly.
 
@@ -122,13 +118,17 @@ The program relies on Linux system calls to handle input/output and demonstrates
 
    The program will prompt you to enter a number, calculate the factorial of the number, and display the result.
 
-### Insights and Challenges
+### Insights 
 
-- *Recursion*: The factorial calculation uses recursion, which requires careful stack management to avoid overflow or incorrect results. Each recursive call decreases the number until the base case is reached.
-  
-- *Integer to String Conversion*: Converting an integer to a string is handled manually in assembly, which requires dividing the number by 10 and extracting the remainder as an ASCII character for each digit.
+-Recursive logic uses stack-based function calls and management to implement recursion for factorial calculations.
+-For assembly display, the Integer-to-String Conversion example shows how to convert integers to strings step-by-step.
+-System Interaction: Uses Linux system calls for input and output to demonstrate the usefulness of low-level OS interactions.
 
-- *System Calls*: The program demonstrates the use of Linux system calls for interacting with input/output. This required a good understanding of how to interface with the system at a low level.
+###Challenges
+- *Stack Management*: To guarantee that intermediate values were maintained and to avoid overflow, recursion necessitated exact stack management.
+- *Manual Conversion* : It was difficult to convert integers to ASCII characters for output, and multi-digit figures needed precise mathematics.
+
+
 
 ## Task 4: Water Level Sensor and Motor Control Program
 
@@ -171,11 +171,12 @@ The program uses Linux system calls for input/output operations and demonstrates
 ### Insights and Challenges
 
 ### Insights
-1. *System Call Usage*: The program demonstrates low-level interaction with the OS using Linux system calls for input and output.
-2. *Manual Input Conversion*: ASCII to integer conversion is handled manually, showcasing direct data manipulation in assembly.
-3. *Conditional Logic*: The program uses conditional jumps to handle different water level thresholds, emphasizing control flow in assembly.
+1. *System-Level I/O*: Uses Linux system calls to handle input and output to show how to communicate with the operating system.
+2. *Input Validation* : Highlights the significance of verifying unprocessed user data and manual ASCII-to-integer conversion.
+3. Using conditional jumps to provide a structured control flow, branching logic efficiently controls operations based on water level thresholds.
+
 
 ### Challenges
-1. *Limited Input Handling*: The program only accepts single-digit inputs (0-9), limiting its functionality.
-2. *Memory Management*: Manual handling of memory increases the risk of errors like improper access.
-3. *Debugging Complexity*: Debugging assembly programs is challenging due to the low-level nature of memory and system call usage.
+1. *Single-Digit Input Restriction*: The program only accepts single-digit values (0–9), limiting its ability to handle more complex inputs.
+2. *Memory Access Risks*: Manual memory handling increases the risk of errors, such as incorrect reads or writes.
+3. *Debugging Difficulties*: Debugging low-level assembly and system calls is intricate and requires detailed analysis.
